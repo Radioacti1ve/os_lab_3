@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
 
     if(pid == 0) {
         // Код для дочернего процесса (заменяется на другую программу)
-        execl(CHILD, CHILD, fileData, std::to_string(fileStats.st_size).c_str(), nullptr);
+        execl(CHILD, CHILD, path.c_str(), std::to_string(fileStats.st_size).c_str(), nullptr);
         perror("Execl Error");
         munmap(fileData, fileStats.st_size);
         return 1;
